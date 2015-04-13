@@ -1,6 +1,6 @@
-package atannir.puzzle.nosuchtiles;
+//package atannir.puzzle.nosuchtiles;
 
-import atannir.puzzle.nosuchtiles.*;
+//import atannir.puzzle.nosuchtiles.*;
 //import Tile;
 
 
@@ -11,7 +11,7 @@ import atannir.puzzle.nosuchtiles.*;
 public class TileDriver {
     
     
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 	
 	//Tile t = new Tile(1, "FT", "RB", "VT", "MB");
 	
@@ -20,5 +20,4 @@ public class TileDriver {
 	
 	
     }
-    
 }
