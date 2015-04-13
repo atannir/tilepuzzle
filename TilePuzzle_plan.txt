@@ -1,0 +1,45 @@
+This program will act as a solver for a puzzle consisting of 9 tiles, each with
+one half of a seal and the solved state is to have each half (upper / lower)
+match with its corresponding half. 9 square tiles form a larger square.
+
+The puzzle has been confirmed solvable.
+
+Current plan:
+
+One Tile object, with an array length 4 of Strings or Enums consisting of the
+following symbols, each with a top and bottom:
+
+F Air Force
+R Army
+V Navy
+M Marines
+
+The Tile class will have an offset modulus 4 to simulate rotating the tile.
+There will be a functionality to retrieve the top/right/bottom/left symbols.
+
+The TileSolver class will have an array of 9 Tile objects which will store the
+configuration of the tiles from the physical puzzle.
+
+
+Strategy:
+Before attempting to solve, a count of which tiles have which part will 
+be compiled and used to more intelligently choose which tile to attempt next.
+Strategy for solving is currently to choose one tile and place it in the middle.
+The program will iterate through candidate solutions until one is found.
+The complying solution will be printed.
+
+Here is the actual data:
+
+N Top Right Bottom Left (TRBL)
+
+1 MB RT RB VB
+2 RB FT FB VB
+3 FT MT VT RT
+4 MT FB FT VB
+5 VT MB FB RT
+6 RT MB VB MT
+7 VB RB MB FT
+8 VB MB FT RT
+9 VT RB MB FT
+
+(Note: 7 and 9 are identical except for Navy Top / Bottom)
