@@ -13,7 +13,16 @@ public class TileDriver {
     
     public static void main(String[] args) {
 	
-	//Tile t = new Tile(1, "FT", "RB", "VT", "MB");
+	Tile t = new Tile(1, "FT", "RB", "VT", "MB");
+	System.out.println(t.toString());
+	t.rotate();
+	System.out.println(t.toString());
+	t.rotate();
+	//currently something goes wrong right about here.
+	System.out.println(t.toString());
+	t.rotate();
+	System.out.println(t.toString());
+	System.out.println(t.getT());
 	
 	//System.out.println(t.toString());
 	System.out.println("TEST");

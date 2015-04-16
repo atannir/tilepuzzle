@@ -26,22 +26,47 @@ public class Tile {
     
     //rotate
     public int rotateCW(int n) {
-	rot = rot + (n % 4); // equivalent to (rot + n) % 4, right?
+	rot = (4 - ((rot + n) % 4));
 	return rot;
     }
     public int rotate() { return rotateCW(1);}
 
     public String toString() {
-	//TODO add offset into this so it is useful
+	//index plus offset mod 4
 	return new String("Tile " + num + " " + 
-			  Trbl[0] + " " +
-			  Trbl[1] + " " + 
-			  Trbl[2] + " " +
-			  Trbl[3]);
+			  Trbl[(((0 + rot) % 4))] + " " +
+			  Trbl[(((1 + rot) % 4))] + " " + 
+			  Trbl[(((2 + rot) % 4))] + " " +
+			  Trbl[(((3 + rot) % 4))]);
     }
 
+	public String getN(String pos){
+		int idx = 0;
+		switch(pos) //Java 7 does strings in switches. Nice!
+		{
+			case "T":
+				idx = (4 - ((0 + rot) % 4));
+				break;
+			case "R":
+				idx = (4 - ((1 + rot) % 4));
+				break;
+			case "B":
+				idx = (4 - ((2 + rot) % 4));
+				break;
+			case "L":
+				idx = (4 - ((3 + rot) % 4));
+				break;
+			default:
+				idx = 0; //bad but... could be worse?
+				break;
+		}
+		return Trbl[idx];
+	}
 
-    //get(trbl) etc
-    //toString
+	//metaprogramming it isn't.
+	public String getT() { return getN("T"); }
+	public String getR() { return getN("R"); }
+	public String getB() { return getN("B"); }
+	public String getL() { return getN("L"); }
 
 }
