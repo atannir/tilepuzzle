@@ -46,16 +46,16 @@ public class Tile {
 		switch(pos) //Java 7 does strings in switches. Nice!
 		{
 			case "T":
-				idx = (4 - ((0 + rot) % 4));
+				idx = ((4 - (0 + rot)) % 4);
 				break;
 			case "R":
-				idx = (4 - ((1 + rot) % 4));
+				idx = ((4 - (3 + rot)) % 4);
 				break;
 			case "B":
-				idx = (4 - ((2 + rot) % 4));
+				idx = ((4 - (2 + rot)) % 4);
 				break;
 			case "L":
-				idx = (4 - ((3 + rot) % 4));
+				idx = ((4 - (1 + rot)) % 4);
 				break;
 			default:
 				idx = 0; //bad but... could be worse?
@@ -65,6 +65,7 @@ public class Tile {
 	}
 
 	//metaprogramming it isn't.
+	public int getNum() { return num; }
 	public String getT() { return getN("T"); }
 	public String getR() { return getN("R"); }
 	public String getB() { return getN("B"); }
