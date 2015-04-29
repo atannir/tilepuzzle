@@ -39,7 +39,6 @@ public class TileDriver {
 		allTiles[7] = new Tile(8, "VB", "MB", "FT", "RT"); // VMFR
 		allTiles[8] = new Tile(9, "VT", "RB", "MB", "FT"); // VMRF
 
-
 		Tile t = new Tile(1, "FT", "RB", "VT", "MB");
 		testRotate(t);
 		printFourSides(t);
