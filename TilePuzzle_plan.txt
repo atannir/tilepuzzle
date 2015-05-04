@@ -43,3 +43,10 @@ N Top Right Bottom Left (TRBL)
 9 VT RB MB FT
 
 (Note: 7 and 9 are identical except for Navy Top / Bottom)
+
+To manage the actual sorting, a few sets will be created to keep track of the tiles available and in use
+Set operations will be used to determine the next steps and potential candidates
+Pre-filtering potential matches should cut down on iteration time
+
+This solution is not as flexible or extensible as it could be but it should suffice to solve the problem at hand
+
