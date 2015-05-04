@@ -41,15 +41,16 @@ public class TileDriver {
 
 		Tile t = new Tile(1, "FT", "RB", "VT", "MB");
 		testRotate(t);
-		printFourSides(t);
+		// printFourSides(t);
 
 	}
 
 	public static void testRotate(Tile t) {
 		System.out.println(t.toString());
-		for ( int i = 0; i < 8; i++) {
+		for ( int i = 0; i < 11; i++) {
 			System.out.println(t.rotate());
 			System.out.println(t.toString());
+			printFourSides(t);
 		}
 	}
 
