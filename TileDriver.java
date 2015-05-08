@@ -40,6 +40,8 @@ public class TileDriver {
 		allTiles[7] = new Tile(8, "VB", "MB", "FT", "RT"); // VMFR
 		allTiles[8] = new Tile(9, "VT", "RB", "MB", "FT"); // VMRF
 
+		int[9] board = {0,0,0,0,0,0,0,0,0}; // another question of using offsets or names
+
 		//Set ops
 		//Autoboxing for the something. No primitive types allowed.
 		Set<Integer> fullSet = new HashSet<Integer>();
@@ -69,13 +71,18 @@ public class TileDriver {
 		//Set<int> AllT = new HashSet<int>();
 		//Set<int> AllB = new HashSet<int>();
 
-		System.out.println(fullSet);
-		System.out.println(AllF);
-		System.out.println(AllR);
-		System.out.println(AllV);
-		System.out.println(AllM);
-		System.out.println(availT);
-		System.out.println(usedT);
+//		System.out.println(fullSet);
+//		System.out.println(AllF);
+//		System.out.println(AllR);
+//		System.out.println(AllV);
+//		System.out.println(AllM);
+//		System.out.println(availT);
+//		System.out.println(usedT);
+
+		//Start setting up the board. Kind of arbitrary, actually.
+		//Begin with the middle piece, or offset 4 in the array.
+
+
 
 
 
