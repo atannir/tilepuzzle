@@ -2,7 +2,8 @@
 
 public class Tile {
 
-	private int num = 0; //tile number for tracking
+	//private int num = 0; //tile number for tracking
+	private String name;
 	private String[] Trbl = new String[4]; //Top Right Bottom Left
 	private int rot = 0; // mod 4, rotation counter, CW assumed here
 
@@ -10,9 +11,11 @@ public class Tile {
 
 
 
-	public Tile(int n, String T, String R, String B, String L){
-		if(n > 0 && n <= 9) { num = n; }
-		else n = -1;
+	public Tile(String n, String T, String R, String B, String L){
+		// if(n > 0 && n <= 9) { num = n; }
+		// else n = -1;
+		// this was dumb anyway.
+		name = n;
 		if (2 == T.length() && 2 == R.length() && 2 == B.length() && 2 == L.length()){
 			//Trbl = { T, R, B, L}; //doesn't work, even with [].
 			Trbl[0] = T;
@@ -34,7 +37,7 @@ public class Tile {
 
 	public String toString() {
 		//index plus offset mod 4
-		return new String("Tile " + num + " " +
+		return new String("Tile " + name + " " +
 				Trbl[(((0 + rot) % 4))] + " " +
 				Trbl[(((1 + rot) % 4))] + " " +
 				Trbl[(((2 + rot) % 4))] + " " +
@@ -69,7 +72,7 @@ public class Tile {
 	}
 
 	//metaprogramming it isn't.
-	public int getNum() { return num; }
+	public String getName() { return name; }
 	public String getT() { return getN("T"); }
 	public String getR() { return getN("R"); }
 	public String getB() { return getN("B"); }

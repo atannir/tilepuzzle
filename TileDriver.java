@@ -14,6 +14,16 @@ public class TileDriver {
 
 	public static void main(String[] args) {
 
+		final int TOPLEFT = 0;
+		final int TOP = 1;
+		final int TOPRIGHT = 2;
+		final int LEFT = 3;
+		final int CENTER = 4;
+		final int RIGHT = 5;
+		final int BOTTOMLEFT = 6;
+		final int BOTTOM = 7;
+		final int BOTTOMRIGHT = 8;
+
 		/*
 		1 MB RT RB VB
 		2 RB FT FB VB
@@ -26,21 +36,20 @@ public class TileDriver {
 		9 VT RB MB FT
 		*/
 
-
 		Tile[] allTiles = new Tile[9];
 		//Uncertain if will use names or offsets exclusively.
-		//For now, offsets, I think, since
-		allTiles[0] = new Tile(1, "MB", "RT", "RB", "VB"); // MRV
-		allTiles[1] = new Tile(2, "RB", "FT", "FB", "VB"); // RFV
-		allTiles[2] = new Tile(3, "FT", "MT", "VT", "RT"); // FMVR
-		allTiles[3] = new Tile(4, "MT", "FB", "FT", "VB"); // MFV
-		allTiles[4] = new Tile(5, "VT", "MB", "FB", "RT"); // VMFR
-		allTiles[5] = new Tile(6, "RT", "MB", "VB", "MT"); // RMV
-		allTiles[6] = new Tile(7, "VB", "RB", "MB", "FT"); // VRMF
-		allTiles[7] = new Tile(8, "VB", "MB", "FT", "RT"); // VMFR
-		allTiles[8] = new Tile(9, "VT", "RB", "MB", "FT"); // VMRF
+		//Changed to letters to stop caring about names vs offsets.
+		allTiles[0] = new Tile("A", "MB", "RT", "RB", "VB"); // MRV
+		allTiles[1] = new Tile("B", "RB", "FT", "FB", "VB"); // RFV
+		allTiles[2] = new Tile("C", "FT", "MT", "VT", "RT"); // FMVR
+		allTiles[3] = new Tile("D", "MT", "FB", "FT", "VB"); // MFV
+		allTiles[4] = new Tile("E", "VT", "MB", "FB", "RT"); // VMFR
+		allTiles[5] = new Tile("F", "RT", "MB", "VB", "MT"); // RMV
+		allTiles[6] = new Tile("G", "VB", "RB", "MB", "FT"); // VRMF
+		allTiles[7] = new Tile("H", "VB", "MB", "FT", "RT"); // VMFR
+		allTiles[8] = new Tile("I", "VT", "RB", "MB", "FT"); // VMRF
 
-		int[9] board = {0,0,0,0,0,0,0,0,0}; // another question of using offsets or names
+		int[] board = {0,0,0,0,0,0,0,0,0}; //array offsets, I guess?
 
 		//Set ops
 		//Autoboxing for the something. No primitive types allowed.
@@ -49,8 +58,10 @@ public class TileDriver {
 
 		Set<Integer> availT = new HashSet<Integer>();
 		for(int i = 0; i < 9; i++){ availT.add(i); }
+		//Start with all tiles available.
 
 		Set<Integer> usedT = new HashSet<Integer>(); //start empty
+		//add and remove tiles as we use them
 
 		//manually done because I don't really need to write code to sort through 9 tiles
 		Set<Integer> AllF = new HashSet<Integer>(); //not 1 not 5
@@ -83,13 +94,17 @@ public class TileDriver {
 		//Begin with the middle piece, or offset 4 in the array.
 
 
+		// Simplest tile test. Match X-RB with Y-RT
+		// Alternately, match X-VB with Y-VT
+		Tile test1 = new Tile("X", "MB", "RT", "RB", "VB"); // MVR
+		Tile test2 = new Tile("Y", "FT", "MT", "VT", "RT"); // FMVR
 
 
 
 
-
-		//Tile t = new Tile(1, "FT", "RB", "VT", "MB");
+		//Tile t = new Tile("1", "FT", "RB", "VT", "MB");
 		//testRotate(t);
+		//testRotate(allTiles[3]);
 
 	}
 
