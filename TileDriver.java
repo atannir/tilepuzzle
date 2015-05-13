@@ -94,10 +94,18 @@ public class TileDriver {
 		//Begin with the middle piece, or offset 4 in the array.
 
 
-		// Simplest tile test. Match X-RB with Y-RT
+		// Simplest tile test. Match X-MB with Y-MT
+		// Can match X-RB with Y-RT
 		// Alternately, match X-VB with Y-VT
 		Tile test1 = new Tile("X", "MB", "RT", "RB", "VB"); // MVR
 		Tile test2 = new Tile("Y", "FT", "MT", "VT", "RT"); // FMVR
+
+		// take tile 1, check type of R, compare to L of tile 2
+
+
+		// 1. make 8 groups for all tiles
+		// 2. make helper functions in the Tile class to determine if something passed is a match.
+		// 2b. (This means that a tile can 'know' if something matches it. The logic is in the class.)
 
 
 
