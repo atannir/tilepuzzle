@@ -64,23 +64,33 @@ public class TileDriver {
 		//add and remove tiles as we use them
 
 		//manually done because I don't really need to write code to sort through 9 tiles
-		Set<Integer> AllF = new HashSet<Integer>(); //not 1 not 5
-		AllF.add(1); AllF.add(2); AllF.add(3); AllF.add(4);
-		AllF.add(6); AllF.add(7); AllF.add(8);
+		Set<Integer> AllFT = new HashSet<Integer>(); // 1 2 3 6 7 8
+		AllFT.add(1); AllFT.add(2); AllFT.add(3); AllFT.add(6);
+		AllFT.add(7); AllFT.add(8);
 
-		Set<Integer> AllR = new HashSet<Integer>(); //not 3
-		AllR.add(0); AllR.add(1); AllR.add(2); AllR.add(4);
-		AllR.add(5); AllR.add(6); AllR.add(7); AllR.add(8);
+		Set<Integer> AllFB = new HashSet<Integer>(); // 1 3 4
+		AllFB.add(1); AllFB.add(3); AllFB.add(4);
 
-		Set<Integer> AllV = new HashSet<Integer>(); //everything
-		for(int i = 0; i < 9; i++){ AllV.add(i); }
+		Set<Integer> AllRT = new HashSet<Integer>(); // 0 2 4 5 7
+		AllRT.add(0); AllRT.add(2); AllRT.add(4); AllRT.add(5); AllRT.add(7);
 
-		Set<Integer> AllM = new HashSet<Integer>(); //not 0 not 1
-		for(int i = 2; i < 9; i++){ AllM.add(i); }
+		Set<Integer> AllRB = new HashSet<Integer>(); // 0 1 6 8
+		AllRB.add(0); AllRB.add(1); AllRB.add(6); AllRB.add(8);
 
-		//Not worth it, all tiles contain tops and bottoms
-		//Set<int> AllT = new HashSet<int>();
-		//Set<int> AllB = new HashSet<int>();
+		Set<Integer> AllVT = new HashSet<Integer>(); // 2 4 8
+		AllVT.add(2); AllVT.add(4); AllVT.add(8);
+//		for(int i = 0; i < 9; i++){ AllV.add(i); }
+
+		Set<Integer> AllVB = new HashSet<Integer>(); // 0 1 3 5 6 7
+		AllVB.add(0); AllVB.add(1); AllVB.add(3); AllVB.add(5); AllVB.add(6); AllVB.add(7);
+
+		Set<Integer> AllMT = new HashSet<Integer>(); // 2 3 5
+		AllMT.add(2); AllMT.add(3); AllMT.add(5);
+
+		Set<Integer> AllMB = new HashSet<Integer>(); // 0 4 5 6 7 8
+		AllMB.add(0); AllMB.add(4); AllMB.add(5); AllMB.add(6); AllMB.add(7); AllMB.add(8);
+//		for(int i = 2; i < 9; i++){ AllM.add(i); }
+
 
 //		System.out.println(fullSet);
 //		System.out.println(AllF);
