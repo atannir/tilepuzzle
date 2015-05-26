@@ -71,6 +71,39 @@ public class Tile {
 		return Trbl[idx];
 	}
 
+	public String getComplementSide(String side)
+	{ // this works well with 4-sided puzzle parts, might not work so well on other types.
+		switch(side.toUpperCase())
+		{
+			case "T":
+				return "B";
+				// a break here would be unreachable due to return.
+			case "B":
+				return "T";
+			case "R":
+				return "L";
+			case "L":
+				return "R";
+			default:
+				System.out.println("Complement not found for " + side + " or " + side.toUpperCase());
+				return "X";
+			//not found, instead of throwing a crazy exception, this should do.
+		}
+		//was getting conflicting errors here about missing return for function and unreachable statements...
+	}
+
+	public boolean match(String side, Tile til)
+	{
+		// return true if the tile passed in matches the complementary side of this tile
+		// other logic (such as rotation) handled elsewhere.
+		if(0 == 1) //TODO
+		{
+			return true;
+		}
+
+		else { return false;}
+	}
+
 	//metaprogramming it isn't.
 	public String getName() { return name; }
 	public String getT() { return getN("T"); }

@@ -111,7 +111,14 @@ public class TileDriver {
 		Tile test2 = new Tile("Y", "FT", "MT", "VT", "RT"); // FMVR
 
 		// take tile 1, check type of R, compare to L of tile 2
-
+		if(test1.match("B",test2)) // match bottom of X with the corresponding side of Y
+		{
+			System.out.println(test1.toString() + " matched " + test2.toString());
+		}
+		else
+		{
+			System.out.println("No match.");
+		}
 
 		// 1. make 8 groups for all tiles
 		// 2. make helper functions in the Tile class to determine if something passed is a match.
