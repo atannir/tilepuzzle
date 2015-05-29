@@ -96,8 +96,7 @@ public class Tile {
 		//was getting conflicting errors here about missing return for function and unreachable statements...
 	}
 
-	public boolean match(String side, Tile til)
-	{
+	public boolean match(String side, Tile til) {
 		// return true if the tile passed in matches the complementary side of this tile
 		// other logic (such as rotation) handled elsewhere.
 		// example: tile1.match("R",
@@ -111,8 +110,8 @@ public class Tile {
 		System.out.println("Corresponding side: " + til.getN(getComplementSide(side)));
 		System.out.println("Corresponding type: " + til.getType(til.getN(getComplementSide(side))));
 		System.out.println("Corresponding half: " + til.getTB(til.getN(getComplementSide(side))));
-		System.out.println("Try to match TB " + til.getTB(til.getN(getComplementSide(side))).compareTo(getTB(getN(side))));
-		System.out.println("Try to match Type " + (til.getType(til.getN(getComplementSide(side))).compareTo(getType(getN(side)))));
+		System.out.println("Try to match TB " + til.getTB(til.getN(getComplementSide(side))).compareTo(getComplementSide(getTB(getN(side))))); // 18 if uncorrected
+		System.out.println("Try to match Type " + til.getType(til.getN(getComplementSide(side))).compareTo(getType(getN(side))));
 //			System.out.println(getN(side));
 //			System.out.println(getN(til.getComplementSide(side))); //make these make sense, local functions preferred
 //			System.out.println(til.getN(getComplementSide(side)));
@@ -121,12 +120,18 @@ public class Tile {
 //		if(
 //				((getN(side)) //match tops or bottoms til.getComplement(side).
 //				)
-		if ((til.getTB(til.getN(getComplementSide(side))).compareTo(getTB(getN(side))) == 0) //match T or B
-				&& (til.getType(til.getN(getComplementSide(side))).compareTo(getType(getN(side)))) == 0 ) // match the type
+//		if ((til.getTB(til.getN(getComplementSide(side))).compareTo(getTB(getN(side))) == 0) //match T or B
+//				&& (til.getType(til.getN(getComplementSide(side))).compareTo(getType(getN(side)))) == 0 ) // match the type
+
+		if (
+				(til.getTB(til.getN(getComplementSide(side))).compareTo(getComplementSide(getTB(getN(side)))) == 0)
+				&& ((til.getType(til.getN(getComplementSide(side))).compareTo(getType(getN(side)))) == 0)
+				)
+		{
 		// if the type of the side and the type of the complement of the side of the other tile match
 		// and the half of the symbol matches
 			return true;
-
+		}
 		else { return false;}
 	}
 

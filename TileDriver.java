@@ -111,8 +111,8 @@ public class TileDriver {
 		Tile test2 = new Tile("Y", "FT", "MT", "VT", "RT"); // FMVR
 
 		// take tile 1, check type of R, compare to L of tile 2
-		test2.rotate(); //nonsense
-		test2.rotate(); //more nonsense
+		test2.rotate(); // with only 1 rotate, it will match T.
+		test2.rotate(); // with 0 or 2 rotates, will not match T.
 		if(test1.match("T",test2)) // match bottom of X with the corresponding side of Y (top)
 		{
 			//rotate here doesn't work because we've already passed the tile in to be matched.
