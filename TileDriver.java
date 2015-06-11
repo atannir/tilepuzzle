@@ -91,15 +91,6 @@ public class TileDriver {
 		AllMB.add(0); AllMB.add(4); AllMB.add(5); AllMB.add(6); AllMB.add(7); AllMB.add(8);
 //		for(int i = 2; i < 9; i++){ AllM.add(i); }
 
-
-//		System.out.println(fullSet);
-//		System.out.println(AllF);
-//		System.out.println(AllR);
-//		System.out.println(AllV);
-//		System.out.println(AllM);
-//		System.out.println(availT);
-//		System.out.println(usedT);
-
 		//Start setting up the board. Kind of arbitrary, actually.
 		//Begin with the middle piece, or offset 4 in the array.
 
@@ -151,4 +142,17 @@ public class TileDriver {
 		System.out.println(t.getB());
 		System.out.println(t.getL());
 	}
+
+
+/*	public static void printBoardStates() {
+
+		System.out.println("Full: " + fullSet);
+		System.out.println("All F:" + AllF);
+		System.out.println("All R:" + AllR);
+		System.out.println("All V:" + AllV);
+		System.out.println("All M:" + AllM);
+		System.out.println("Avail T:" + availT);
+		System.out.println("Used: " + usedT);
+	}*/
+
 }

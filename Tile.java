@@ -7,14 +7,14 @@ public class Tile {
 	private String[] Trbl = new String[4]; //Top Right Bottom Left
 	private int rot = 0; // mod 4, rotation counter, CW assumed here
 
+	private int DEBUG_LEVEL = 1;
+
 	//enums here later, maybe, but now, strings.
 
 
 
 	public Tile(String n, String T, String R, String B, String L){
-		// if(n > 0 && n <= 9) { num = n; }
-		// else n = -1;
-		// this was dumb anyway.
+
 		name = n;
 		if (2 == T.length() && 2 == R.length() && 2 == B.length() && 2 == L.length()){
 			//Trbl = { T, R, B, L}; //doesn't work, even with [].
@@ -35,7 +35,10 @@ public class Tile {
 	}
 	public int rotate() { return rotateCW(1);}
 
+	@Override
 	public String toString() {
+		if(DEBUG_LEVEL == 1){super.toString();}
+
 		//index plus offset mod 4
 		return new String("Tile " + name + " " +
 				Trbl[(((0 + rot) % 4))] + " " +
@@ -99,40 +102,31 @@ public class Tile {
 	public boolean match(String side, Tile til) {
 		// return true if the tile passed in matches the complementary side of this tile
 		// other logic (such as rotation) handled elsewhere.
-		// example: tile1.match("R",
-		//if(getN(side) == til.getComplementSide(side)) //TODO
-		System.out.println("Side: " + side);
-		System.out.println("Symbol to match: " + getN(side));
-		System.out.println("Tile to match: " + til.toString());
-		System.out.println("Type component: " + getType(getN(side)));
-		System.out.println("Half component: " + getTB(getN(side)));
-		System.out.println("Complement side: " + getComplementSide(side));
-		System.out.println("Corresponding side: " + til.getN(getComplementSide(side)));
-		System.out.println("Corresponding type: " + til.getType(til.getN(getComplementSide(side))));
-		System.out.println("Corresponding half: " + til.getTB(til.getN(getComplementSide(side))));
-		System.out.println("Try to match TB " + til.getTB(til.getN(getComplementSide(side))).compareTo(getComplementSide(getTB(getN(side))))); // 18 if uncorrected
-		System.out.println("Try to match Type " + til.getType(til.getN(getComplementSide(side))).compareTo(getType(getN(side))));
-//			System.out.println(getN(side));
-//			System.out.println(getN(til.getComplementSide(side))); //make these make sense, local functions preferred
-//			System.out.println(til.getN(getComplementSide(side)));
-//			System.out.println(getTB(til.getN(getComplementSide(side))));
-//			System.out.println(getType(til.getN(getComplementSide(side))));
-//		if(
-//				((getN(side)) //match tops or bottoms til.getComplement(side).
-//				)
-//		if ((til.getTB(til.getN(getComplementSide(side))).compareTo(getTB(getN(side))) == 0) //match T or B
-//				&& (til.getType(til.getN(getComplementSide(side))).compareTo(getType(getN(side)))) == 0 ) // match the type
+		if(DEBUG_LEVEL == 1)
+		{
+			System.out.println("Side: " + side);
+			System.out.println("Symbol to match: " + getN(side));
+			System.out.println("Tile to match: " + til.toString());
+			System.out.println("Type component: " + getType(getN(side)));
+			System.out.println("Half component: " + getTB(getN(side)));
+			System.out.println("Complement side: " + getComplementSide(side));
+			System.out.println("Corresponding side: " + til.getN(getComplementSide(side)));
+			System.out.println("Corresponding type: " + til.getType(til.getN(getComplementSide(side))));
+			System.out.println("Corresponding half: " + til.getTB(til.getN(getComplementSide(side))));
+			System.out.println("Try to match TB " + til.getTB(til.getN(getComplementSide(side))).compareTo(getComplementSide(getTB(getN(side))))); // 18 if uncorrected
+			System.out.println("Try to match Type " + til.getType(til.getN(getComplementSide(side))).compareTo(getType(getN(side))));
+		}
 
 		if (
 				(til.getTB(til.getN(getComplementSide(side))).compareTo(getComplementSide(getTB(getN(side)))) == 0)
-				&& ((til.getType(til.getN(getComplementSide(side))).compareTo(getType(getN(side)))) == 0)
+						&& ((til.getType(til.getN(getComplementSide(side))).compareTo(getType(getN(side)))) == 0)
 				)
 		{
-		// if the type of the side and the type of the complement of the side of the other tile match
-		// and the half of the symbol matches
+			// if the type of the side and the type of the complement of the side of the other tile match
+			// and the half of the symbol matches
 			return true;
 		}
-		else { return false;}
+		else { return false; }
 	}
 
 	public String getType(String part) {return part.substring(0,1);} //get kind of the matching part
